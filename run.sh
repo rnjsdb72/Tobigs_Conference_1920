@@ -1,23 +1,23 @@
-# echo "Matting..."
+echo "Matting..."
 
-# python ./Matting/inference.py \
-#     --variant resnet50 \
-#     --checkpoint "./ckpt/rvm_resnet50.pth" \
-#     --device cpu \
-#     --input-source "./img" \
-#     --output-type png_sequence \
-#     --output-composition "output" \
-#     --output-alpha "output" \
-#     --output-foreground "output" \
-#     --output-video-mbps 4 \
-#     --seq-chunk 1
+python ./Matting/inference.py \
+    --variant resnet50 \
+    --checkpoint "./ckpt/rvm_resnet50.pth" \
+    --device cpu \
+    --input-source "./img" \
+    --output-type png_sequence \
+    --output-composition "output" \
+    --output-alpha "output" \
+    --output-foreground "output" \
+    --output-video-mbps 4 \
+    --seq-chunk 1
 
-# echo "Inpainting..."
+echo "Inpainting..."
 
-# python ./Inpainting/inference_propainter.py \
-#     --inputs ./img --input_type image\
-#     --output ./output \
-#     --height -1 --width -1
+python ./Inpainting/inference_propainter.py \
+    --inputs ./img --input_type image\
+    --output ./output \
+    --height -1 --width -1
 
 echo "Estimating Pose..."
 
