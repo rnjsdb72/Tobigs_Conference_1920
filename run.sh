@@ -14,10 +14,15 @@ python ./Matting/inference.py \
 
 echo "Inpainting..."
 
-python ./Inpainting/inference_propainter.py \
-    --inputs ./img --input_type image\
-    --output ./output \
-    --height -1 --width -1
+# python ./Inpainting/inference_propainter.py \
+#     --inputs ./img --input_type image\
+#     --output ./output \
+#     --height -1 --width -1
+
+python ./Inpainting/inference_deepfillv2.py \
+    --image ./img \
+    --out ./output \
+    --checkpoint ./ckpt/states_pt_places2.pth
 
 echo "Estimating Pose..."
 
