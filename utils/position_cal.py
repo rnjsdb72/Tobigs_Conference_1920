@@ -61,7 +61,7 @@ def eval_metric_eye(image, left_eye, right_eye):
 
     abnormal_score = 0
     
-	# 눈 위치 가운데 블록에 위치하도록
+    # 눈 위치 가운데 블록에 위치하도록
     if left_eye_x < first_width:
         abnormal_score += abs(first_width-left_eye_x) / line_y
     if right_eye_x > second_width:
@@ -144,7 +144,7 @@ def find_best_neck_pos(shoulder_points: tuple = (0, 0),
 
     for y in np.arange(first_thrid_height - 0.5, first_thrid_height + 0.5, 0.1):
         for x in range(img_width):
-            # knee와 ankle과 pelvic의 경우 한쪽 다리에 해당하는 좌표만 입력
+            # knee와 ankle과 pelvic의 경우 왼왼쪽 다리에 해당하는 좌표만 입력
             knee_pos, ankle_pos, pelvic_pos = calculate_new_coordinates(knee, ankle, pelvic, (neck_center_x, neck_center_y))
             neck_score = eval_metric_neck(img, (x, y))
             bottom_score = eval_metric_bottom(img, pelvic_pos, knee_pos, ankle_pos)
@@ -212,7 +212,7 @@ def main_process(img,
     :param ankle: (tuple) the ankle position
     :param img: the image
     """
-    # 한쪽 다리에 대해 무릎의 레이블이 있는 경우 전신으로 계산
+    # 왼쪽 다리에 대해 무릎의 레이블이 있는 경우 전신으로 계산
     if knee_label is not None and knee is not None:
         first_score_neck = eval_metric_neck(img, find_neck_center(shoulder_points, mouth_point))
         first_score_bottom = eval_metric_bottom(img, pelvic, knee, ankle)
