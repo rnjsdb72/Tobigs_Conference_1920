@@ -167,8 +167,8 @@ def find_best_eye_pos(left_eye_pos, right_eye_pos, img):
     img_width = img.shape[1]
     first_thrid_height = int(img.shape[0]/3)
 
-    left_eye_pos_x, _ = left_eye_pos[0]
-    right_eye_pos_x, _ = right_eye_pos[0]
+    left_eye_pos_x, _ = left_eye_pos
+    right_eye_pos_x, _ = right_eye_pos
 
     eye_distance = right_eye_pos_x - left_eye_pos_x
 

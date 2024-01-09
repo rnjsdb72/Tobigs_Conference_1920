@@ -32,3 +32,5 @@ python ./PoseEstimation/inference.py \
     --ckpt ./ckpt/td-hm_3xrsn50_8xb32-210e_coco-256x192-c3e3c4fe_20221013.pth \
     --input-dir ./output --apply-matted "True" --output-dir ./output \
     --device cpu
+
+python create.py --inputdir ./output
